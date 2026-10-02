@@ -13,6 +13,14 @@
 | **Website** | https://github.com/TechieGoku2623/spatial-routing-friction-resolver |
 | **Topics** | `python` `asyncio` `logistics` `routing` `geospatial` `dijkstra` |
 
+## The problem this solves
+
+A route that is shortest on a map is often slowest on the road. Congestion and turns dominate the cost, and duplicate or zero-length waypoints corrupt the graph before search even starts.
+
+Spatial Routing Friction Resolver builds each edge from haversine length, a congestion factor, and a turn penalty, drops duplicate and zero-length edges, then runs Dijkstra. The published result is the path, total friction in meters, and the count of edges removed before search.
+
+The objective is operational cost, and the graph is cleaned before it is searched.
+
 ## Walkthrough
 
 ### How it works
