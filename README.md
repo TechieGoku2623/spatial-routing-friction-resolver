@@ -13,6 +13,14 @@
 | **Website** | https://github.com/TechieGoku2623/spatial-routing-friction-resolver |
 | **Topics** | `python` `asyncio` `logistics` `routing` `geospatial` `dijkstra` |
 
+## Watch the demo
+
+<p align="center">
+  <img src="docs/demo.gif" alt="Spatial Routing Friction Resolver dashboard walkthrough" width="920"/>
+</p>
+
+Play the video: [docs/watch.html](docs/watch.html)
+
 ## The problem this solves
 
 A route that is shortest on a map is often slowest on the road. Congestion and turns dominate the cost, and duplicate or zero-length waypoints corrupt the graph before search even starts.
