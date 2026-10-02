@@ -2,6 +2,11 @@
 
 A high-throughput, low-latency asynchronous engine engineered to resolve lowest-friction waypoint paths by scoring haversine distance, congestion, and heading-change penalties and searching that complete graph with Dijkstra.
 
+Website: https://github.com/TechieGoku2623/spatial-routing-friction-resolver
+
+Topics: `python` `asyncio` `logistics` `routing` `geospatial` `dijkstra`
+
+
 ## 🏗️ Systems Architecture & Event Topology
 
 `SpatialRoutingFrictionResolver` builds a complete directed graph on the waypoints it is given and searches it with `heapq` Dijkstra. State is `(node, previous node)` so the turn penalty, which depends on the incoming heading, is part of the path cost. `run` packs each waypoint, hops it through an `asyncio.Queue`, and calls `ingest`. Solved edges are `struct.pack`ed onto a bounded outbound queue.
@@ -36,6 +41,8 @@ path, total_friction_m, edges
 Edge base cost `distance_m * (1 + congestion_avg)` is cached by `(from_id, to_id)`. The turn term is applied at expansion time because it depends on the inbound edge. A zero-length pair is omitted before `bearing_rad` runs, so the heading helper is never asked to divide by a zero distance.
 
 ## 📊 Core Visual Walkthrough & Engine Pipeline Flow
+
+![Terminal walkthrough](docs/assets/terminal-walkthrough.gif)
 
 ```
 input order:  [start, ..., goal]
